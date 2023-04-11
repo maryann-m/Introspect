@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Introspect</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_started">Get sarted</string>
+    <string name="Whats_you_name">What\'s your name?</string>
+    <string name="Date_of_birth">When were you born?</string>
+    <string name="create_pin">Create your pin</string>
+    <string name="confirm_pin">Confirm your pin</string>
+    <string name="pins_dont_match">Pins don\'t match.</string>
+    <string name="first_name">First Name</string>
+    <string name="continue_">Continue</string>
+    <string name="complete">Complete</string>
+    <string name="second_name">Second Name</string>
+    <string name="biometric">Do you want to add biometrics?</string>
+    <string name="biometric3"><u>Use biometrics</u></string>
+    <string name="biometric2">Biometrics provide an additional layer of security and make app access easier </string>
+    <string name="add">Add </string>
+    <string name="later">Later</string>
+    <string name="Login">Enter your pin to login</string>
+    <string name="morning">Good morning,</string>
+    <string name="afternoon">Good afternoon,</string>
+    <string name="evening">Good evening,</string>
+    <string name="my_progress">My progress</string>
+    <string name="progress">Progress</string>
+    <string name="my_goals">My Goals</string>
+    <string name="my_qotes">Quote of the day</string>
+    <string name="my_roadmap">My roadmap</string>
+    <string name="edit_roadmap">Edit roadmap</string>
+    <string name="set_startDate">Set start date :</string>
+    <string name="set_EndDate">Set end date :</string>
+    <string name="status">Status :</string>
+    <string name="notifications">Notifications</string>
+    <string name="data_and_sync">Data and Privacy</string>
+    <string name="data_and_sync_desc">Sync and manage your data</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="on_going_goals">On-going goals</string>
+    <string name="on_hold_goals">On-hold goals</string>
+    <string name="completed">Completed goals</string>
+
+
+</resources>

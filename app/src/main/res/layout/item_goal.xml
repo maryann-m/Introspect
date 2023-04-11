@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/dialog_background_rounded"
+    android:layout_height="wrap_content">
+    
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/tv_heading"
+        android:fontFamily="@font/canaro_light"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="Learn how to swim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:fontFamily="@font/canaro_light"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <TextView
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/tv_progress"
+        android:fontFamily="@font/canaro_light"
+        android:maxLines="2"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:text="30% progress"
+        android:textColor="@color/Sage"
+        app:layout_constraintTop_toBottomOf="@id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

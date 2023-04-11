@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/Layer1"
+               motion:framePosition="100"
+               android:alpha="0" />
+       </KeyFrameSet>
+        <OnSwipe motion:touchAnchorId="@+id/Layer2" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            motion:layout_constraintDimensionRatio="1"
+            android:layout_height="0dp"
+            motion:layout_constraintTop_toTopOf="@+id/lottie2"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:id="@+id/myProfile"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/Layer1" />
+        <Constraint
+            motion:layout_constraintWidth_percent=".14"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            motion:layout_constraintTop_toTopOf="@+id/lottie2"
+            motion:layout_constraintDimensionRatio="1"
+            android:layout_marginTop="40dp"
+            android:id="@+id/myProfile"
+            android:layout_marginEnd="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/Layer1"
+            android:layout_marginBottom="20dp" />
+        <Constraint
+            android:id="@+id/lottie2"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="-100dp"
+            android:alpha="0"
+            motion:layout_constraintHeight_percent=".45"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintDimensionRatio="1" />
+        <Constraint
+            android:id="@+id/Layer1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintTop_toBottomOf="@id/Name"
+            motion:layout_constraintHeight_percent=".02" />
+    </ConstraintSet>
+</MotionScene>

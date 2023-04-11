@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:iconTint="@color/Sage"
+        android:icon="@drawable/profile_round_1342_svgrepo_com"
+        android:id="@+id/hio"
+        android:title="Bio"  />
+
+
+    <item
+        android:iconTint="@color/Sage"
+        android:icon="@drawable/lock_open_round_708_svgrepo_com"
+        android:id="@+id/access"
+        android:title="Access"  />
+
+
+</menu>

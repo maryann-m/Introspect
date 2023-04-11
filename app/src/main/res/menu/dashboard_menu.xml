@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/home_1_svgrepo_com"
+        android:id="@+id/home"
+        android:title=""  />
+
+    <item
+        android:icon="@drawable/notification_bell_new_svgrepo_com"
+        android:id="@+id/notifications"
+        android:title=""  />
+
+    <item
+        android:id="@+id/notifications2"
+        android:title=""  />
+    <item
+        android:icon="@drawable/graph_svgrepo_com__1_"
+        android:id="@+id/progress"
+        android:title="" />
+    <item
+        android:icon="@drawable/sync_svgrepo_com"
+        android:id="@+id/message"
+        android:title="" />
+</menu>

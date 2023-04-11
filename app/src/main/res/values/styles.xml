@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Primary_heading" parent="">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/aesthetic400</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Primary_text" parent="">
+        <item name="textAllCaps">false</item>
+
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NumpadCardStyle" parent="">
+    <item name="cardBackgroundColor"></item>
+    <item name="cardElevation">0dp</item>
+
+    </style>
+
+    <style name="NumpadTextStyle" parent="">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@drawable/numpad_text_color</item>
+    </style>
+
+    <style name="TabAdapterTextStyle" parent="">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/canaro_light</item>
+        <item name="android:gravity">bottom</item>
+
+    </style>
+
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="RoundedButton" parent="">
+        <item name="android:strokeWidth">2</item>
+    </style>
+
+
+
+</resources>

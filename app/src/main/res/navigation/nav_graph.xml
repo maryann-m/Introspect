@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splash_fragment">
+
+    <fragment
+        android:id="@+id/splash_fragment"
+        android:name="com.example.introspect.ui.onboarding.Splash_fragment"
+        android:label="fragment_splash_fragment"
+        tools:layout="@layout/fragment_splash_fragment" >
+        <action
+            android:id="@+id/action_splash_fragment_to_walkthroughFragment"
+            app:destination="@id/walkthroughFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/walkthroughFragment"
+        android:name="com.example.introspect.ui.onboarding.WalkthroughFragment"
+        android:label="fragment_walkthrough"
+        tools:layout="@layout/fragment_walkthrough" >
+        <action
+            android:id="@+id/action_walkthroughFragment_to_accountSetUpFragment"
+            app:destination="@id/accountSetUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountSetUpFragment"
+        android:name="com.example.introspect.ui.onboarding.account_setUp.AccountSetUpFragment"
+        android:label="fragment_account_set_up"
+        tools:layout="@layout/fragment_account_set_up" >
+        <action
+            android:id="@+id/action_accountSetUpFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.introspect.ui.dashboard.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.introspect.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.example.introspect.ui.dashboard.ExploreFragment"
+        android:label="fragment_explore"
+        tools:layout="@layout/fragment_explore" />
+</navigation>

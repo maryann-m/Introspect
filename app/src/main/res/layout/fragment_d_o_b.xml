@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.onboarding.account_setUp.DOBFragment">
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/rootContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="24dp"
+
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="+"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardBack"
+
+            />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_heading"
+        style="@style/Primary_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="@string/Date_of_birth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardBack" />
+
+
+    <LinearLayout
+        android:id="@+id/llProfile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/_circle"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/ll2"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"
+        app:layout_constraintWidth_percent=".25">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:src="@drawable/user"
+            app:tint="@color/white">
+
+        </ImageView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/Name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llProfile">
+
+
+        <TextView
+            android:text="Demah"
+            android:fontFamily="@font/brusselscity400"
+            android:id="@+id/tv_firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textSize="18sp"
+            />
+
+        <TextView
+
+            android:id="@+id/tv_SecondName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Ursula"
+            android:fontFamily="@font/brusselscity400"
+            android:textSize="18sp"
+            >
+
+        </TextView>
+
+    </LinearLayout>
+
+
+    <!--
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="-50dp"
+            android:layout_marginTop="-30dp"
+            android:alpha="0.6"
+            android:src="@drawable/_circle"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintHeight_percent=".26"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#392823">
+
+        </ImageView>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="-100dp"
+            android:layout_marginBottom="-70dp"
+            android:alpha="0.5"
+            android:src="@drawable/_circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".4">
+
+        </ImageView>
+    -->
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/Name"
+        tools:layout_editor_absoluteX="20dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50127226">
+
+        </androidx.constraintlayout.widget.Guideline>
+        <com.chaos.view.PinView
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".85"
+            android:layout_marginTop="20dp"
+            android:id="@+id/pvDay"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:itemWidth="50dp"
+            app:itemHeight="50dp"
+            app:lineWidth="2dp"
+            android:itemBackground="@color/white"
+            app:lineColor="@color/Sage"
+            android:focusable="false"
+            android:hint="dd"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:itemCount="2"
+            app:itemRadius="5dp"
+            app:itemSpacing="5dp"
+
+            >
+
+        </com.chaos.view.PinView>
+
+  <!--      <EditText
+            android:id="@+id/day1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_background"
+            android:focusable="false"
+            android:hint="d"
+            android:inputType="none"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".13" />
+
+        <EditText
+            android:id="@+id/day2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_background"
+            android:focusable="false"
+            android:hint="d"
+            android:inputType="none"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".13" />
+-->
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/slash1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:fontFamily="@font/brusselscity400"
+            android:text="/"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pvDay" />
+
+        <com.chaos.view.PinView
+            app:layout_constraintTop_toBottomOf="@id/slash1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".85"
+            android:layout_marginTop="20dp"
+            android:id="@+id/pvMonth"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:itemWidth="50dp"
+            app:itemHeight="50dp"
+            app:lineWidth="2dp"
+            app:lineColor="@color/Sage"
+            android:focusable="false"
+            android:hint="mm"
+            android:itemBackground="@color/white"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:itemCount="2"
+            app:itemRadius="5dp"
+            app:itemSpacing="5dp"
+
+            >
+
+        </com.chaos.view.PinView>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/slash2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:fontFamily="@font/brusselscity400"
+            android:text="/"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pvMonth" />
+
+        <com.chaos.view.PinView
+            app:layout_constraintTop_toBottomOf="@id/slash2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".85"
+            android:layout_marginTop="20dp"
+            android:id="@+id/pvYear"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:itemWidth="50dp"
+            app:itemHeight="50dp"
+            app:lineWidth="2dp"
+            app:lineColor="@color/Sage"
+            android:focusable="false"
+            android:hint="yyyy"
+            android:itemBackground="@color/white"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:itemCount="4"
+            app:itemRadius="5dp"
+            app:itemSpacing="5dp"
+
+            >
+
+        </com.chaos.view.PinView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
