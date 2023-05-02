@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.LottieDrawable
 import com.example.introspect.R
@@ -58,6 +59,7 @@ class GoalsFragment : Fragment() {
 
     private  fun setUpUI(){
         binding.Name.setOnClickListener { promptBottomDialogGoalDesription() }
+        binding.cardEdit.setOnClickListener { findNavController().navigate(R.id.editRoadMapFragment) }
     }
 
 

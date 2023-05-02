@@ -38,7 +38,7 @@
             android:fontFamily="@font/canaro_light"
             android:maxLines="2"
             android:text="13 notifications in the past 5 days"
-            android:textColor="@color/Sage"
+            android:textColor="@color/color_Primary"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

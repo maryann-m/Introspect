@@ -1,19 +1,20 @@
 package com.example.introspect.ui.login
 
-import android.hardware.biometrics.BiometricPrompt
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.airbnb.lottie.LottieDrawable
+import com.example.introspect.DashboardActivity
 import com.example.introspect.R
 import com.example.introspect.databinding.FragmentLoginBinding
 import com.example.introspect.utils.dialogPinsDontMatch
@@ -168,7 +169,9 @@ class LoginFragment : Fragment() {
 
                     if (pin.length == 4) {
 
-                      findNavController().navigate(R.id.dashboardFragment)
+
+                        val myIntent = Intent(requireActivity(), DashboardActivity::class.java)
+                        requireActivity().startActivity(myIntent)
                     }
                     Log.i("Pin", pin)
                 } else {

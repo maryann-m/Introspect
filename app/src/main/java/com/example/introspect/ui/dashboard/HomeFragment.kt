@@ -19,6 +19,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.LottieDrawable
+import com.example.introspect.DashboardActivity
 import com.example.introspect.R
 import com.example.introspect.adapters.GoalAdapter
 import com.example.introspect.databinding.FragmentHomeBinding
@@ -47,7 +48,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpNavDrawer()
+        //setUpNavDrawer()
         setUpAnimation()
         setUpAdapter()
         setUpUI()
@@ -68,29 +69,13 @@ class HomeFragment : Fragment() {
     }
 
 
-    private fun setUpNavDrawer(){
-        toggle = ActionBarDrawerToggle(requireActivity(), binding.homeRootDrawer,R.string.open, R.string.close)
-        binding.homeRootDrawer.addDrawerListener(toggle)
-        toggle.syncState()
 
-        binding.homeDrawer.setNavigationItemSelectedListener {
-            when(it.itemId)
-            {
-                R.id.hio ->notifyUser("Bio")
-                R.id.access -> notifyUser("Access")
-            }
-
-            true
-        }
-
-
-        binding.homeRootDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-
-    }
 
 
     private fun setUpUI(){
-        binding.myProfile.setOnClickListener { binding.homeRootDrawer.openDrawer(GravityCompat.START) }
+        binding.myProfile.setOnClickListener {
+            //DashboardActivity().openDrawer()
+        /**/ }
 
 
 
@@ -108,7 +93,7 @@ class HomeFragment : Fragment() {
     private fun setUpAnimation(){
 
         binding.llQuotes.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment2_to_goalsFragment)
+            findNavController().navigate(R.id.goalsFragment)
         }
         binding.apply {
             lottie2.setAnimation(R.raw.blobenvelopebrown)

@@ -17,7 +17,7 @@
         <shape android:shape="oval">
 
 
-            <solid android:color="@color/Sage"/>
+            <solid android:color="@color/color_Primary"/>
             <!--<stroke
                 android:width="1.5dp"
                 android:color="#BA214216">

@@ -62,7 +62,7 @@ class WalkthroughFragment : Fragment() {
                     binding.btnProceed.startAnimation(setUpAnim(R.anim.fade_in))
                     binding.btnProceed.visibility = View.VISIBLE
 
-                    binding.btnProceed.setOnClickListener{findNavController().navigate(R.id.action_walkthroughFragment_to_accountSetUpFragment)}
+                    binding.btnProceed.setOnClickListener{findNavController().navigate(R.id.accountSetUpFragment)}
 
 
                 }else {

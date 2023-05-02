@@ -7,11 +7,13 @@
 
     <item
         android:icon="@drawable/notification_bell_new_svgrepo_com"
-        android:id="@+id/notifications"
+        android:id="@+id/notifications2"
         android:title=""  />
 
     <item
-        android:id="@+id/notifications2"
+        android:iconTint="@color/black"
+        android:icon="@drawable/explore_svgrepo_com"
+        android:id="@+id/explore"
         android:title=""  />
     <item
         android:icon="@drawable/graph_svgrepo_com__1_"
@@ -19,6 +21,6 @@
         android:title="" />
     <item
         android:icon="@drawable/sync_svgrepo_com"
-        android:id="@+id/message"
+        android:id="@+id/mescolor_Primary"
         android:title="" />
 </menu>

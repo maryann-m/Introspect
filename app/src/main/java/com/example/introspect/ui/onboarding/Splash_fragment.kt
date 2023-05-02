@@ -9,17 +9,17 @@ import androidx.navigation.fragment.findNavController
 import com.airbnb.lottie.LottieDrawable
 import com.example.introspect.R
 import com.example.introspect.databinding.FragmentSplashFragmentBinding
+import com.example.introspect.utils.IntrospectDataPrefs
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class Splash_fragment : Fragment() {
 
     private lateinit var binding: FragmentSplashFragmentBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
+    @Inject
+    lateinit var  introspectDataPrefs: IntrospectDataPrefs
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +34,13 @@ class Splash_fragment : Fragment() {
 
         setUpAnimation()
         binding.splashFragmentLottie.setOnClickListener {
-            findNavController().navigate(R.id.action_splash_fragment_to_walkthroughFragment)
+
+            if(introspectDataPrefs.getGoneThruOnboarding()){
+                findNavController().navigate(R.id.loginFragment)
+            }else{
+                findNavController().navigate(R.id.walkthroughFragment)
+            }
+
         }
     }
 

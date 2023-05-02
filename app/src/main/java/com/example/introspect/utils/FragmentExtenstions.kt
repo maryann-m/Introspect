@@ -113,8 +113,8 @@ fun Fragment.hideDialog() {
     }
 }
 
-fun Fragment.notifyUser(message: String) =
-    Toast.makeText(requireActivity(), message, Toast.LENGTH_SHORT).show()
+fun Fragment.notifyUser(mescolor_Primary: String) =
+    Toast.makeText(requireActivity(), mescolor_Primary, Toast.LENGTH_SHORT).show()
 
 
  fun Fragment.setUpBottomNavActionBar(

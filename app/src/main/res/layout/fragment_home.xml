@@ -104,7 +104,7 @@
                 app:layout_constraintEnd_toStartOf="@id/llProgress"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/Sage"
+                app:strokeColor="@color/color_Primary"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -151,7 +151,7 @@
                         android:fontFamily="@font/canaro_light"
                         android:maxLines="2"
                         android:text="      _Dylan Thomas"
-                        android:textColor="@color/Sage"
+                        android:textColor="@color/color_Primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -244,7 +244,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/bottom_sheet_rounded_top"
-            android:backgroundTint="@color/Sage"
+            android:backgroundTint="@color/color_Primary"
             android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Layer1">

@@ -3,35 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dashboard_nav_graph"
-    app:startDestination="@id/homeFragment2">
-
+    app:startDestination="@id/splash_fragment">
     <fragment
-        android:id="@+id/homeFragment2"
-        android:name="com.example.introspect.ui.dashboard.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment2_to_goalsFragment"
-            app:destination="@id/goalsFragment" />
-    </fragment>
+        android:id="@+id/splash_fragment"
+        android:name="com.example.introspect.ui.onboarding.Splash_fragment"
+        android:label="fragment_splash_fragment"
+        tools:layout="@layout/fragment_splash_fragment" />
     <fragment
-        android:id="@+id/notificationsFragment2"
-        android:name="com.example.introspect.ui.dashboard.NotificationsFragment"
-        android:label="fragment_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/walkthroughFragment"
+        android:name="com.example.introspect.ui.onboarding.WalkthroughFragment"
+        android:label="fragment_walkthrough"
+        tools:layout="@layout/fragment_walkthrough" />
     <fragment
-        android:id="@+id/progressFragment"
-        android:name="com.example.introspect.ui.dashboard.progress.ProgressFragment"
-        android:label="fragment_progress"
-        tools:layout="@layout/fragment_progress" />
+        android:id="@+id/accountSetUpFragment"
+        android:name="com.example.introspect.ui.onboarding.account_setUp.AccountSetUpFragment"
+        android:label="fragment_account_set_up"
+        tools:layout="@layout/fragment_account_set_up" />
     <fragment
-        android:id="@+id/goalsFragment"
-        android:name="com.example.introspect.ui.dashboard.goals.GoalsFragment"
-        android:label="fragment_goals"
-        tools:layout="@layout/fragment_goals" />
-    <fragment
-        android:id="@+id/dataAndSyncFragment"
-        android:name="com.example.introspect.ui.dashboard.DataAndSyncFragment"
-        android:label="fragment_data_and_sync"
-        tools:layout="@layout/fragment_data_and_sync" />
+        android:id="@+id/loginFragment"
+        android:name="com.example.introspect.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

@@ -15,9 +15,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.introspect.R
 import com.example.introspect.databinding.FragmentPINBinding
 import com.example.introspect.utils.*
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 
+@AndroidEntryPoint
 class PINFragment : Fragment() {
 
     private lateinit var binding:FragmentPINBinding
@@ -33,6 +36,11 @@ class PINFragment : Fragment() {
     private var isDone = false
     //private val customDialogFragment = CustomDialogFragment()
     private var mConfirmPin: String? = null
+
+    @Inject
+    lateinit var introspectDataPrefs: IntrospectDataPrefs
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -119,6 +127,7 @@ class PINFragment : Fragment() {
 
                         if(pinConfrim == pin){
 
+                            introspectDataPrefs.goneThruOnboarding(true)
                             val timerValues = (500.toLong()..2500.toLong()).random()
 
                            /* showDialog()

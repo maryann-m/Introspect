@@ -11,5 +11,5 @@
     <item android:state_checked="true" android:color="@color/white"/>
 
     <!-- default -->
-    <item android:color="@color/Sage"/>
+    <item android:color="@color/color_Primary"/>
 </selector>
