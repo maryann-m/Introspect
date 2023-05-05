@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.introspect.R
 import com.example.introspect.databinding.FragmentDOBBinding
 import com.example.introspect.ui.viewmodels.AccountLookupViewModel
+import com.example.introspect.utils.getDeviceId
 import com.example.introspect.utils.notifyUser
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,6 +24,7 @@ class DOBFragment : Fragment() {
 
 
     private lateinit var binding:FragmentDOBBinding
+    private lateinit var viewModel: AccountLookupViewModel
     private val cal = Calendar.getInstance()
    // private val accountLookupViewModel = ViewModelProvider(requireActivity()).get(AccountLookupViewModel::class.java)
    // private val accountLookupViewModel:AccountLookupViewModel by viewModels(ownerProducer = {requireParentFragment()})
@@ -37,15 +39,14 @@ class DOBFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel = ViewModelProvider(requireActivity()).get(AccountLookupViewModel::class.java)
             initUi()
     }
 
 
     private fun initUi(){
-
-        //binding.tvFirstName.text = accountLookupViewModel.user.firstName
-        //binding.tvSecondName.text = accountLookupViewModel.user.secondName
+        binding.tvFirstName.text = viewModel.user.value!!.firstName
+        binding.tvSecondName.text = viewModel.user.value!!.secondName
 
             setupDatePicker()
 
@@ -73,8 +74,10 @@ class DOBFragment : Fragment() {
                     binding.pvMonth.setText(monthOfYear.toString())
                 }
 
-
                 binding.pvYear.setText(year.toString())
+                viewModel.user.value!!.deviceID = requireContext().getDeviceId()
+                viewModel.user.value!!.dateOfBirth  = binding.pvDay.text.toString()+"-"+binding.pvMonth.text.toString()+"-"+binding.pvYear.text.toString()
+                Log.i("DOB", viewModel.user.value!!.dateOfBirth)
             }
 
         binding.ll2.setOnClickListener {
@@ -85,7 +88,10 @@ class DOBFragment : Fragment() {
                 cal.get(Calendar.MONTH),
                 cal.get(Calendar.DAY_OF_MONTH)
             ).show()
+
+
     }
+
 
 
 }

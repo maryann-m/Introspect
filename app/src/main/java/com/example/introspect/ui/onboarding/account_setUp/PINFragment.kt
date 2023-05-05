@@ -11,9 +11,13 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.introspect.R
 import com.example.introspect.databinding.FragmentPINBinding
+import com.example.introspect.ui.viewmodels.AccountLookupViewModel
+import com.example.introspect.ui.viewmodels.UserViewModel
 import com.example.introspect.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
@@ -40,7 +44,8 @@ class PINFragment : Fragment() {
     @Inject
     lateinit var introspectDataPrefs: IntrospectDataPrefs
 
-
+    private lateinit var viewModel: AccountLookupViewModel
+    private val userViewModel by viewModels<UserViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +57,7 @@ class PINFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel = ViewModelProvider(requireActivity()).get(AccountLookupViewModel::class.java)
         initUI()
     }
     private fun initUI(){
@@ -128,6 +133,10 @@ class PINFragment : Fragment() {
                         if(pinConfrim == pin){
 
                             introspectDataPrefs.goneThruOnboarding(true)
+                            savePassword(pinConfrim)
+
+                            //Save user to room
+                            userViewModel.addUser(viewModel.user.value!!)
                             val timerValues = (500.toLong()..2500.toLong()).random()
 
                            /* showDialog()

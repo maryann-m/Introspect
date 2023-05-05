@@ -1,0 +1,12 @@
+{
+  "animation": {
+    "name": "Text with Cursor",
+    "duration": 1000,
+    "steps": [
+      {
+        "text": "How are you feeling today",
+        "cursor": true
+      }
+    ]
+  }
+}

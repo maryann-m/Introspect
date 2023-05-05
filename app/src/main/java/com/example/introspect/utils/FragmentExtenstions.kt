@@ -17,6 +17,8 @@ import com.example.introspect.databinding.CustomActionbarNavFragmentsBinding
 import com.example.introspect.databinding.DialogNetworkCallBinding
 import com.example.introspect.databinding.DuoChoiceDialogBinding
 import com.example.introspect.databinding.FragmentCustomDialogBinding
+import com.example.introspect.utils.constants.PASSWORD_KEY
+import com.example.introspect.utils.keystore.PasswordStorageHelper
 
 
 private lateinit var dialogBuilder: AlertDialog.Builder
@@ -126,4 +128,12 @@ fun Fragment.notifyUser(mescolor_Primary: String) =
 
     actionBar.tvDescription.text = resources.getString(desc)
      actionBar.Name.text = resources.getString(name)
+}
+
+fun Fragment.savePassword(password: String) {
+    PasswordStorageHelper(requireContext()).setData(PASSWORD_KEY, password.toByteArray())
+}
+
+fun Fragment.getPassword() : String {
+    return String((PasswordStorageHelper(requireContext()).getData(PASSWORD_KEY) ?: ByteArray(0)))
 }

@@ -277,18 +277,7 @@
     </androidx.constraintlayout.motion.widget.MotionLayout>
 
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/homeDrawer"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_header_menu"
-        android:fitsSystemWindows="true"
-        android:layout_gravity="start"
 
-        >
-
-    </com.google.android.material.navigation.NavigationView>
 
 
 

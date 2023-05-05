@@ -3,7 +3,7 @@
 
     <style name="Primary_heading" parent="">
         <item name="textAllCaps">false</item>
-        <item name="fontFamily">@font/aesthetic400</item>
+        <item name="fontFamily">@font/petrona</item>
         <item name="android:textSize">36sp</item>
         <item name="android:textStyle">bold</item>
     </style>

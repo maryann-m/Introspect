@@ -19,7 +19,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.introspect.databinding.ActivityDashboardBinding
 import com.example.introspect.utils.notifyUser
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var toggle: ActionBarDrawerToggle
@@ -78,13 +80,8 @@ class DashboardActivity : AppCompatActivity() {
                     navController.navigate(R.id.dataAndSyncFragment)
                     true}
 
-
-
-
                 else->false
             }
-
-
         }
 
 

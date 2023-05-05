@@ -9,15 +9,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.introspect.databinding.FragmentEnterNameBinding
+import com.example.introspect.ui.viewmodels.AccountLookupViewModel
+import com.example.introspect.ui.viewmodels.UserViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class EnterNameFragment : Fragment() {
 
     private lateinit var binding: FragmentEnterNameBinding
 
-    //private val accountLookupViewModel = ViewModelProvider(requireActivity()).get(AccountLookupViewModel::class.java)
+    private lateinit var viewModel: AccountLookupViewModel
+
 
 
 
@@ -31,6 +37,8 @@ class EnterNameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity()).get(AccountLookupViewModel::class.java)
+
 
         initUI()
     }
@@ -49,7 +57,7 @@ class EnterNameFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 binding.tvFirstName.text = binding.firstName.text.toString()
-               // accountLookupViewModel.user.firstName = binding.firstName.text.toString()
+                viewModel.user.value?.firstName   = binding.firstName.text.toString()
 
             }
 
@@ -66,6 +74,7 @@ class EnterNameFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 binding.tvSecondName.text = binding.SecondName.text.toString()
+                viewModel.user.value?.secondName   = binding.tvSecondName.text.toString()
                // accountLookupViewModel.user.secondName = binding.SecondName.text.toString()
 
             }

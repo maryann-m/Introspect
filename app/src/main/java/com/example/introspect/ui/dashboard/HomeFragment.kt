@@ -24,19 +24,24 @@ import com.example.introspect.R
 import com.example.introspect.adapters.GoalAdapter
 import com.example.introspect.databinding.FragmentHomeBinding
 import com.example.introspect.ui.viewmodels.HomeViewModel
+import com.example.introspect.ui.viewmodels.UserViewModel
 import com.example.introspect.utils.notifyUser
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import java.util.*
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
 
-    var isOpen:MutableStateFlow<Boolean> = MutableStateFlow(true)
-    private lateinit var toggle:ActionBarDrawerToggle
+    var isOpen: MutableStateFlow<Boolean> = MutableStateFlow(true)
+    private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: FragmentHomeBinding
     private lateinit var goalAdapter: GoalAdapter
     private val homeViewModel by viewModels<HomeViewModel>()
+    private val userViewModel by viewModels<UserViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,11 +60,11 @@ class HomeFragment : Fragment() {
 
         lifecycleScope.launch {
             isOpen.collect {
-                if(binding.homeRootDrawer.isDrawerOpen(GravityCompat.START)){
+                if (binding.homeRootDrawer.isDrawerOpen(GravityCompat.START)) {
                     isOpen.value = true
                     notifyUser(isOpen.value.toString())
                     Log.i("Is open", "true")
-                }else {
+                } else {
                     isOpen.value = false
                     notifyUser(isOpen.value.toString())
                     Log.i("Is open", "false")
@@ -69,28 +74,45 @@ class HomeFragment : Fragment() {
     }
 
 
-
-
-
-    private fun setUpUI(){
+    private fun setUpUI() {
         binding.myProfile.setOnClickListener {
             //DashboardActivity().openDrawer()
-        /**/ }
+            /**/
+        }
+
+        val now = Calendar.getInstance()
+        val hour = now.get(Calendar.HOUR_OF_DAY)
+
+        lifecycleScope.launch {
+            userViewModel.readUser().collect{
+                binding.Name.text = it.firstName
+            }
+        }
 
 
-
+        when (hour) {
+            in 0..11 -> {
+                binding.tvGreeting.text = getString(R.string.morning)
+            }
+            in 12..16 -> {
+                binding.tvGreeting.text = getString(R.string.afternoon)
+            }
+            else -> {
+                binding.tvGreeting.text = getString(R.string.evening)
+            }
+        }
 
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item)){
+        if (toggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setUpAnimation(){
+    private fun setUpAnimation() {
 
         binding.llQuotes.setOnClickListener {
             findNavController().navigate(R.id.goalsFragment)
@@ -105,7 +127,6 @@ class HomeFragment : Fragment() {
             lottieProgress.playAnimation()
         }
     }
-
 
 
     private fun setUpAdapter() = binding.rvGoals.apply {

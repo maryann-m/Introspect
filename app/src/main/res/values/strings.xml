@@ -2,7 +2,9 @@
     <string name="app_name">Introspect</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Hello">Hello, %s!</string>
     <string name="get_started">Get started</string>
+    <string name="add_new"> + Add new</string>
     <string name="save_changes">Save changes</string>
     <string name="Whats_you_name">What\'s your name?</string>
     <string name="Date_of_birth">When were you born?</string>

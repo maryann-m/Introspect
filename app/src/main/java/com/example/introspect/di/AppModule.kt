@@ -20,4 +20,11 @@ object AppModule {
     fun provideUserPreferences(@ApplicationContext context: Context): IntrospectDataPrefs {
         return IntrospectDataPrefs(context)
     }
+
+    @Singleton
+    @Provides
+    fun provideIntrospectDatabase(@ApplicationContext context: Context): Introspect_DataBase {
+        return Introspect_DataBase(context)
+    }
+
 }

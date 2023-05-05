@@ -11,18 +11,28 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.airbnb.lottie.LottieDrawable
 import com.example.introspect.DashboardActivity
 import com.example.introspect.R
 import com.example.introspect.databinding.FragmentLoginBinding
+import com.example.introspect.ui.viewmodels.AccountLookupViewModel
+import com.example.introspect.ui.viewmodels.UserViewModel
 import com.example.introspect.utils.dialogPinsDontMatch
 import com.example.introspect.utils.duoChoiceDialog
+import com.example.introspect.utils.getPassword
 import com.example.introspect.utils.notifyUser
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.util.concurrent.Executor
 
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
@@ -38,9 +48,16 @@ class LoginFragment : Fragment() {
     //private val customDialogFragment = CustomDialogFragment()
     private var mConfirmPin: String? = null
 
+
     lateinit var executor: Executor
     lateinit var biometricPrompt: androidx.biometric.BiometricPrompt
     lateinit var promptInfo: androidx.biometric.BiometricPrompt.PromptInfo
+
+    private lateinit var viewModel: AccountLookupViewModel
+    private val userViewModel by viewModels<UserViewModel>()
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,10 +71,22 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel = ViewModelProvider(requireActivity()).get(AccountLookupViewModel::class.java)
         setUpAnimation()
         setUpBiometric()
         initUI()
+
+
+        lifecycleScope.launch {
+            userViewModel.readUser().collect{
+                Log.i("SavedUSER", it.toString())
+                binding.welcomeName.text = getString(R.string.Hello, it.firstName )
+            }
+        }
+
+
+       // setUpUI()
+
     }
 
     private fun setUpBiometric(){
@@ -170,59 +199,17 @@ class LoginFragment : Fragment() {
                     if (pin.length == 4) {
 
 
-                        val myIntent = Intent(requireActivity(), DashboardActivity::class.java)
-                        requireActivity().startActivity(myIntent)
+                        if(pin == getPassword()){
+                            val myIntent = Intent(requireActivity(), DashboardActivity::class.java)
+                            requireActivity().startActivity(myIntent)
+                        }else{
+                            notifyUser("Incorrect PIN")
+                        }
+
                     }
                     Log.i("Pin", pin)
-                } else {
-                    pinConfrim = one1 + two2 + three3 + four4
-                    if (pinConfrim.length == 4) {
-
-
-                        if (pinConfrim == pin) {
-
-                            val timerValues = (500.toLong()..2500.toLong()).random()
-
-                            /* showDialog()
-
-                             Handler().postDelayed({hideDialog()}, timerValues)
-                             Log.i("TimerValue", timerValues.toString())*/
-
-                            Handler().postDelayed({
-                                duoChoiceDialog(
-                                    resources.getString(R.string.biometric),
-                                    resources.getString(R.string.biometric2),
-                                    resources.getString(R.string.add),
-                                    resources.getString(R.string.later)
-                                )
-                            }, timerValues)
-                            Log.i("TimerValue", timerValues.toString())
-
-                            /* if( duoChoiceDialog(
-                                     resources.getString(R.string.biometric),
-                                     resources.getString(R.string.biometric2),
-                                     resources.getString(R.string.add),
-                                     resources.getString(R.string.later)
-                                 )){
-                                 notifyUser("Adding biometric...")
-                             }else{
-                                 notifyUser("You can always add biometric from the settings menu")
-                             }*/
-
-
-                        } else {
-                            dialogPinsDontMatch()
-                            //customDialogFragment.show(childFragmentManager, customDialogFragment.tag )
-                            //DialogFragment.newInstance("Log put", "Are you sure you want to log out").show(parentFragmentManager, DialogFragment.TAG)
-                            //notifyUser("Passwords dont match")
-                            Handler().postDelayed({
-                                binding.tvHeading.text = resources.getString(R.string.create_pin)
-                                resetUI()
-                                stage = 0
-                            }, 500)
-                        }
-                    }
                 }
+
             }
         }
 
@@ -262,6 +249,18 @@ class LoginFragment : Fragment() {
         return AnimationUtils.loadAnimation(requireContext(), anim)
     }
 
+
+    private  fun setUpUI(){
+
+        lifecycleScope.launch {
+            userViewModel.readUser().collect{
+                //Log.i()
+               //
+            }
+        }
+
+
+    }
 
     private fun resetUI() {
         binding.pin4.setImageResource(R.drawable.pin_background)
