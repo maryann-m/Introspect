@@ -13,7 +13,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="24dp"
-
         app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
@@ -21,16 +20,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:tint="#808080"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/ic_baseline_keyboard_double_arrow_left_24"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardBack"
 
-            />
+            app:tint="#808080" />
 
     </com.google.android.material.card.MaterialCardView>
 

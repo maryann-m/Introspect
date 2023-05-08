@@ -121,13 +121,13 @@ fun Fragment.notifyUser(mescolor_Primary: String) =
 
  fun Fragment.setUpBottomNavActionBar(
     actionBar: CustomActionbarNavFragmentsBinding,
-    name:Int,
-    desc:Int
+    name:String,
+    desc:String
 
 ){
 
-    actionBar.tvDescription.text = resources.getString(desc)
-     actionBar.Name.text = resources.getString(name)
+    actionBar.tvDescription.text = desc
+     actionBar.Name.text = name
 }
 
 fun Fragment.savePassword(password: String) {

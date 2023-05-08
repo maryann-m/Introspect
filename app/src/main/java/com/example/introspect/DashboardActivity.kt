@@ -119,11 +119,12 @@ class DashboardActivity : AppCompatActivity() {
     }
 
 
-    interface openDrawer {
+
         fun openDrawer(){
-          //  ho.openDrawer(GravityCompat.START)
+            binding.homeRootDrawer.openDrawer(GravityCompat.START)
+
         }
     }
 
 
-    }
+

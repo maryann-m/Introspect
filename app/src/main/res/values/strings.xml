@@ -12,6 +12,7 @@
     <string name="confirm_pin">Confirm your pin</string>
     <string name="pins_dont_match">Pins don\'t match.</string>
     <string name="first_name">First Name</string>
+    <string name="goal_name">Goal Name</string>
     <string name="continue_">Continue</string>
     <string name="complete">Complete</string>
     <string name="second_name">Second Name</string>
@@ -42,6 +43,11 @@
     <string name="on_going_goals">On-going goals</string>
     <string name="on_hold_goals">On-hold goals</string>
     <string name="completed">Completed goals</string>
+    <string name="new_goal">New goal</string>
+    <string name="add_task">+ add roadmap</string>
+    <string name="confirm">Confirm</string>
+    <string name="description">Description: </string>
+    <string name="add_description">Add description</string>
 
 
 </resources>

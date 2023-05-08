@@ -39,4 +39,9 @@
         android:name="com.example.introspect.ui.dashboard.goals.EditRoadMapFragment"
         android:label="fragment_edit_road_map"
         tools:layout="@layout/fragment_edit_road_map" />
+    <fragment
+        android:id="@+id/addGoalFragment"
+        android:name="com.example.introspect.ui.dashboard.goals.AddGoalFragment"
+        android:label="fragment_add_goal"
+        tools:layout="@layout/fragment_add_goal" />
 </navigation>

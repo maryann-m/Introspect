@@ -28,8 +28,8 @@ class DataAndSyncFragment : Fragment() {
 
         setUpBottomNavActionBar(
             binding.actionBar,
-            R.string.data_and_sync,
-            R.string.data_and_sync_desc
+            getString(R.string.data_and_sync),
+            getString(R.string.data_and_sync_desc)
         )
     }
 

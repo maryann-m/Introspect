@@ -7,20 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.ExploreFragment">
 
-    <TextView
-        android:layout_marginTop="50dp"
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/undraw_book_reading_re_fu2c"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/Name"
-        app:layout_constraintWidth_percent=".7"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/petrona"
         android:text="How are you feeling today?"
         android:textColor="@color/white"
         android:textFontWeight="800"
         android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

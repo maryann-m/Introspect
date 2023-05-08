@@ -35,10 +35,10 @@ import java.util.*
 class HomeFragment : Fragment() {
 
 
-    var isOpen: MutableStateFlow<Boolean> = MutableStateFlow(true)
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: FragmentHomeBinding
     private lateinit var goalAdapter: GoalAdapter
+    private lateinit var dashboardActivity:DashboardActivity
     private val homeViewModel by viewModels<HomeViewModel>()
     private val userViewModel by viewModels<UserViewModel>()
 
@@ -52,32 +52,30 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //setUpNavDrawer()
+        dashboardActivity = (requireActivity() as? DashboardActivity)!!
         setUpAnimation()
-        setUpAdapter()
+        setUpAnimation2()
+       // setUpAdapter()
         setUpUI()
 
-        lifecycleScope.launch {
-            isOpen.collect {
-                if (binding.homeRootDrawer.isDrawerOpen(GravityCompat.START)) {
-                    isOpen.value = true
-                    notifyUser(isOpen.value.toString())
-                    Log.i("Is open", "true")
-                } else {
-                    isOpen.value = false
-                    notifyUser(isOpen.value.toString())
-                    Log.i("Is open", "false")
-                }
-            }
+
+    }
+
+    private fun setUpAnimation2(){
+
+
+        binding.apply {
+            lottieAnimation.setAnimation(R.raw.not_found)
+            lottieAnimation.repeatCount = LottieDrawable.INFINITE
+            lottieAnimation.playAnimation()
+
         }
     }
 
 
     private fun setUpUI() {
         binding.myProfile.setOnClickListener {
-            //DashboardActivity().openDrawer()
-            /**/
+            dashboardActivity.openDrawer()
         }
 
         val now = Calendar.getInstance()
